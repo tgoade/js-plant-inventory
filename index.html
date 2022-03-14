@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <head>
+        <title>Plant Inventory App</title>
+        <link rel="stylesheet" href="./css/styles.css">
+        <script src="./js/scripts.js"></script>
+    </head>
+    <body>
+        <main>
+            <figure class="head-image">
+                <img src="./images/head-image.jpg" alt="App Top Image" />
+            </figure>
+            <div class="entry">
+                <form autocomplete="off" onsubmit="event.preventDefault();onFormSubmit()">
+                    <div class="one-input-row">
+                        <label for="plantName">Plant Name* </label><label class="validation-error hide" id="nameValidationError">&nbsp; This field is required.</label>
+                        <input type="text" name="plantName" id="plantName">
+                    </div>
+                    <div class="two-input-row">
+                        <div class="input-one">
+                            <label for="growthCondition">Growth Condition</label>
+                            <input type="text" name="growthCondition" id="growthCondition">
+                        </div>
+                        <div class="input-two">
+                            <label for="maxHeight">Maximum Height</label>
+                            <input type="text" name="maxHeight" id="maxHeight">
+                        </div>
+                    </div>
+                    <div class="two-input-row">
+                        <div class="input-one">
+                            <label for="imageUrl">Image URL</label>
+                            <input type="text" name="imageUrl" id="imageUrl">
+                        </div>
+                        <div class="input-two">
+                            <label for="infoUrl">Info URL</label>
+                            <input type="text" name="infoUrl" id="infoUrl">
+                        </div>
+                    </div>
+                    <div class="cta">
+                        <input type="submit" value="Enter">
+                    </div>
+                </form>
+            </div>
+            <div class="Inventory">
+                <table class="list" id="plantList">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Plant Name</th>
+                            <th>Growth Condition</th>
+                            <th>Max Height</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
