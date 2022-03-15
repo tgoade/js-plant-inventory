@@ -8,6 +8,7 @@ function onFormSubmit(){
             insertNewRecord(formData);
         } else {
             updateEntry(formData);
+            selectedRow = null;
         }    
         resetForm();
     }
@@ -16,7 +17,6 @@ function onFormSubmit(){
 // Retrieve the data
 function readFormData(){
     let formData = {};
-
     formData["plantName"] = document.getElementById("plantName").value;
     formData["growthCondition"] = document.getElementById("growthCondition").value;
     formData["maxHeight"] = document.getElementById("maxHeight").value;
@@ -39,8 +39,8 @@ function insertNewRecord(data){
     cell4 = newRow.insertCell(3);
     cell4.innerHTML = data.maxHeight; 
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = `<button onClick="onEdit(this)">Edit</button>
-                       <button onClick="onDelete(this)">Delete</button>`; 
+    cell5.innerHTML = `<i class="far fa-edit" onClick="onEdit(this)"></i>
+                       <i class="far fa-trash-alt" onClick="onDelete(this)"></i>`; 
 }
 
 // Reset form
@@ -55,16 +55,16 @@ function resetForm (){
 // Edit entries, putting the recorded entry back into the input fields
 function onEdit (td){
     selectedRow = td.parentElement.parentElement;
-    selectedAnchor = document.querySelector('.infoLink').getAttribute("href");
-    selectedImage = document.querySelector('.plantThumbPic').getAttribute("src");
+    selectedAnchor = selectedRow.querySelector('.infoLink').getAttribute("href");
+    selectedImage = selectedRow.querySelector('.plantThumbPic').getAttribute("src");
     document.getElementById("plantName").value = selectedRow.cells[1].innerHTML;
     document.getElementById("growthCondition").value = selectedRow.cells[2].innerHTML;
     document.getElementById("maxHeight").value = selectedRow.cells[3].innerHTML;
     if (selectedImage){
-        document.getElementById("imageUrl").value = document.querySelector('.plantThumbPic').src;
+        document.getElementById("imageUrl").value = selectedImage;
     }
     if (selectedAnchor){
-        document.getElementById("infoUrl").value = document.querySelector('.infoLink').href;
+        document.getElementById("infoUrl").value = selectedAnchor;
     }    
 }
 

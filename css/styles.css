@@ -114,7 +114,7 @@ input[type=submit] {
 input[type=reset] {
   background-color: #cdcdcd;
 }
-input[type=submit], input[type=reset] {
+input[type=submit] {
   padding: 5px 0;
   border-radius: 5px;
   font-size: 20px;
@@ -131,26 +131,30 @@ input[type=submit], input[type=reset] {
   width: 100%;
   border: 1px solid #ced4da;
 }
-#plantList thead {
+#plantList thead tr, #plantList tr:nth-child(even) {
   background-color: #eee;
 }
 #plantList th{
   font-weight: 400;
 }
-#plantList th:first-child {
-  max-width: 150px;
+#plantList th:first-child, #plantList td:first-child {
+  width: 100px;
 }
 #plantList td {
   text-align: center;
 }
 #plantList figure {
   width: 100px;
-  height: 100px;
+  max-height: 100px;
   overflow: hidden;
 }
 #plantList img {
   max-width: 150px;
   max-height: 150px;
+}
+#plantList .far {
+  cursor: pointer;
+  margin: 0 10px;
 }
 .hide {
   display: none;
